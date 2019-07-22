@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Decimal to IEEE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label>Número</ion-label>
+        <ion-input type="number" name="numero"
+                   formControlName="numero"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Base</ion-label>
+        <ion-select formControlName="base" style="text-align: left">
+          <ion-option value="2">Binario</ion-option>
+          <ion-option value="8">Octal</ion-option>
+          <ion-option value="10">Decimal</ion-option>
+          <ion-option value="16">Hexadecimal</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bits Exp.</ion-label>
+        <ion-input type="number" name="expB"
+                   formControlName="expB"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Bits Man.</ion-label>
+        <ion-input type="number" name="manB"
+                   formControlName="manB"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <div class="errorNumber" *ngIf="!form.valid">
+    Comprueba los valores que has introducido. Solo se permiten números binarios
+  </div>
+  <div class="okNumber" *ngIf="result">
+    <div *ngIf="result.errorExponent" class="exponentError">El exponente no puede almacenar dicho número</div>
+    <div *ngIf="result.errorBase" class="exponentError">El número no es soportado por la base introducida</div>
+    <div *ngIf="!result.errorExponent && !result.errorBase">
+      <div class="itemResult"><span class="propery">Signo</span>{{result.sign}}</div>
+      <div class="itemResult"><span class="propery">Expo.</span>{{result.exponent}}</div>
+      <div class="itemResult"><span class="propery">Mant.</span>{{result.significant}}</div>
+      <div class="itemResult" *ngIf="result.lossPrecission"><span class="propery">Precisión</span>Perdió precisión</div>
+      <div class="itemResult" *ngIf="!result.lossPrecission"><span class="propery">Precisión</span> Ok!</div>
+
+    </div>
+
+
+  </div>
+</ion-content>

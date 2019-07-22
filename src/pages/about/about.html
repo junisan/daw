@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle *ngIf="!firstUse">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="!firstUse">Acerca de</ion-title>
+        <ion-title *ngIf="firstUse">Bienvenido</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="firstUse">
+        <h1>Antes de empezar...</h1>
+        <p>
+            Bienvenido a DAW Tools, una aplicación para hacer la vida más fácil a los alumnos de
+            DAW.</p>
+        <p>Esta es una aplicación experimental, por lo que entiendes que no deberías fiarte
+            ciegamente de los resultados obtenidos.</p>
+        <p>También entiendes que utilizaré cookies para
+            realizar analíticas de uso y poder seguir mejorando la aplicación.
+        </p>
+
+        <button ion-button (click)="acepta()">Entendido!</button>
+    </div>
+    <div *ngIf="!firstUse">
+        <div class="center">
+            <img src="assets/imgs/logo.svg" alt="Logo">
+        </div>
+        <p>Estás usando DAW Tools V 0.0.1 optimizado para Browser</p>
+        <p>Puedes ponerte en contacto conmigo a través de daw@juannicolas.eu para trasladarme tus dudas,
+        sugerencias o incluso quejas. Estaré encantado de hacer lo posible por ti.</p>
+    </div>
+
+</ion-content>

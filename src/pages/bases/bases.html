@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Bases</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="form">
+    <ion-list>
+        <ion-item>
+            <ion-label>Número</ion-label>
+            <ion-input type="number" name="numero"
+                       formControlName="numero"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>En Base</ion-label>
+            <ion-input type="number" name="enBase"
+                       formControlName="enBase"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.controls['enBase'].errors" style="color:#F00">
+            La base debe ser 1&lt;base&lt;21
+        </ion-item>
+        <ion-item>
+            <ion-label>A Base</ion-label>
+            <ion-input type="number" name="aBase"
+                       formControlName="aBase"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="form.controls['aBase'].errors" style="color:#F00">
+            La base debe ser 1&lt;base&lt;21
+        </ion-item>
+        <ion-item *ngIf="form.valid" style="text-align:right">
+            <button ion-button="" (click)="invertir()">Invertir</button>
+        </ion-item>
+    </ion-list>
+    </form>
+
+    <div class="errorNumber" *ngIf="!form.valid">
+        Comprueba los valores que has introducido.
+    </div>
+    <div class="okNumber" *ngIf="form.valid">
+        {{form.controls['numero'].value}} <sub>{{form.controls['enBase'].value}}</sub>
+        <div class="equal">=</div>
+        {{operation.resultado}} <sub>{{form.controls['aBase'].value}}</sub>
+    </div>
+</ion-content>

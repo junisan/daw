@@ -1,0 +1,19 @@
+page-home {
+  .smallText .toolbar-title{
+    font-size: 12px;
+    color: #FFF;
+  }
+  .toolbar-background{
+    background: map-get($colors, primary-second);;
+  }
+
+  .center{
+    text-align: center;
+    img{
+      width: 98%;
+      height: auto;
+      max-height: 300px;
+    }
+  }
+}
+

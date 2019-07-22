@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>IEEE A Decimal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item>
+        <ion-label>Signo</ion-label>
+        <ion-input type="number" name="signo"
+                   formControlName="signo"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="form.controls['signo'].errors && form.controls['signo'].errors['binaryChar']">
+        <div class="errorNumber">
+          El signo solo puede ser un caracter 0 ó 1.
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Exponente</ion-label>
+        <ion-input type="number" name="exponente"
+                   formControlName="exponente"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Mantisa</ion-label>
+        <ion-input type="number" name="mantisa"
+                   formControlName="mantisa"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <div class="errorNumber" *ngIf="!form.valid">
+    Comprueba los valores que has introducido. Solo se permiten números binarios
+  </div>
+  <div class="okNumber" *ngIf="form.valid">
+    <div style="margin-bottom: 10px;">El resultado es:</div>
+    <div class="itemResult">{{result}}<sub>2</sub></div>
+    <div class="itemResult">{{result|base:[2,8]}}<sub>8</sub></div>
+    <div class="itemResult">{{result|base:[2,10]}}<sub>10</sub></div>
+    <div class="itemResult">{{result|base:[2,16]}}<sub>16</sub></div>
+  </div>
+</ion-content>

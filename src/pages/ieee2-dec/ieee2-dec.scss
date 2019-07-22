@@ -1,0 +1,18 @@
+page-ieee2-dec {
+  div.errorNumber{
+    color: #f30d0d;
+  }
+  div.okNumber{
+    font-size: 1.7em;
+    color: #3b5998;
+    padding: 5px;
+    sub{
+      font-size:0.5em;
+    }
+    .equal{
+      font-size: 2em;
+      color: #0F0;
+      text-align:center
+    }
+  }
+}

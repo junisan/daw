@@ -1,0 +1,13 @@
+{
+  "name": "DAW",
+  "short_name": "DAW",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#3b5998",
+  "theme_color": "#3b5998"
+}

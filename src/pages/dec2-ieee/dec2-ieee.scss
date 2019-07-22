@@ -1,0 +1,15 @@
+page-dec2-ieee {
+  div.errorNumber, div.exponentError, div.errorBase{
+    color: #f30d0d;
+  }
+  div.okNumber{
+    div.itemResult{
+      padding: 5px;
+      font-size: 1.5em;
+      span{
+        padding-right: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+}
